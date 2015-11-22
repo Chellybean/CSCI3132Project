@@ -1,18 +1,18 @@
 class Individual
 	private gene;
-	public void initalize() // random
-	public void initalize(gene) // homozygote of gene
-	public void initalize(gene, gene) // create individual with genotype containing both genes
+	public void initialize() // random
+	public void initialize(gene) // homozygote of gene
+	public void initialize(gene, gene) // create individual with genotype containing both genes
 	public Individual mate(individual) //randomly get a gene from each parent and create a new individual
 
 class Population
 	private vector<Individual> pop
-	public void initalize() // empty pop
-	public void initalize(int size) //random population of a size
-	public void initalize(int size, double freq) //population with only homozygous individuals, # of AA = size * freq, aa = size - (size *freq)
-	public void initalize(int sizeAA, int sizeaa) //# of AA, # of aa
-	public void initalize(int sizeAA, int sizeaa, int sizeAa)
-	public Population newPopulation() creates a new population with the same size of the old, randomly
-	public Population newPopulationFitness(double fitA, double fita, double fitAa) //fitnesses of AA, aa, and Aa - new pop size == old pop size
+	public void initialize() // empty pop
+	public void initialize(int size) //random population of a size
+	public void initialize(int size, double freq) //population with only homozygous individuals, # of AA = size * freq, aa = size - (size *freq)
+	public void initialize(int sizeAA, int sizeaa) //# of AA, # of aa
+	public void initialize(int sizeAA, int sizeaa, int sizeAa)
+	public Population newGeneration() creates a new population with the same size of the old, randomly
+	public Population newGenerationFitness(double fitA, double fita, double fitAa) //fitnesses of AA, aa, and Aa - new pop size == old pop size
 	public void printStats()
 	

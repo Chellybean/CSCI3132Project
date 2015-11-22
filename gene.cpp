@@ -3,12 +3,13 @@
 #include <string>
 #include <cstdlib>
 
-class gene{
+class gene
+{
     public:
         enum allele { A = 0, a = 1 };
-        void initalize(); //default, creates a random gene
-        void initalize(allele); //creates a homozygote of a phenotype
-        void initalize(allele, allele); //creates a gene with alleles
+        void initialize(); //default, creates a random gene
+        void initialize(allele); //creates a homozygote of a phenotype
+        void initialize(allele, allele); //creates a gene with alleles
         allele* getGenotype(); //gets the genotype
         allele getPhenotype(); //gets the phenotype
         void setGene(allele x, allele y) { initalize(x, y); }
@@ -24,7 +25,7 @@ class gene{
 };
 
 //no args, creates a random gene
-void gene::initalize()
+void gene::initialize()
 {
 	phenotype = a;
 	for(int i = 0; i < 2; i++)
@@ -37,7 +38,7 @@ void gene::initalize()
 }
 
 //creates a homozygote of an allele of phenotype x
-void gene::initalize(allele x)
+void gene::initialize(allele x)
 {
 	phenotype = x;
 	if(x == A){genotype[0] = A; genotype[1] = A;}
@@ -45,7 +46,7 @@ void gene::initalize(allele x)
 }
 
 //creates a gene of with both alleles
-void gene::initalize(allele x, allele y)
+void gene::initialize(allele x, allele y)
 {
 	if( x == A && y == A){ phenotype = A; genotype[0] = A; genotype[1] = A;}
 	else if( x == a && y == a){ phenotype = a; genotype[0] = a; genotype[1] = a;}
@@ -80,7 +81,7 @@ int main()
     for(int i = 0; i < 10; i++)
     {
 	    gene test;
-	    test.initalize();
+	    test.initialize();
 	    test.printGene();
     }
 }
