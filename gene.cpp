@@ -12,6 +12,7 @@ class gene{
         allele* getGenotype(); //gets the genotype
         allele getPhenotype(); //gets the phenotype
         void setGene(allele x, allele y) { initalize(x, y); }
+        allele getRandomAllele(); //gets a random allele, used for mating
         void printGene();
         
         
@@ -56,6 +57,9 @@ void gene::initalize(allele x, allele y)
 //set gene
 gene::allele * gene::getGenotype(){ return genotype; }
 gene::allele gene::getPhenotype(){ return phenotype; }
+//returns a random allele, this will be used for mating
+//the allele will be passed on to the child
+gene::allele gene::getRandomAllele(){ return genotype[rand()%2]; }
 
 
 void gene::printGene()
