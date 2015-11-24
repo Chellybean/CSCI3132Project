@@ -1,8 +1,8 @@
 class Individual
 	private gene;
 	public void initialize() // random
-	public void initialize(gene) // homozygote of gene
-	public void initialize(gene, gene) // create individual with genotype containing both genes
+	public void initialize(allele) // homozygote of gene
+	public void initialize(allele, allele) // create individual with genotype containing both genes
 	public Individual mate(individual) //randomly get a gene from each parent and create a new individual
 
 class Population
