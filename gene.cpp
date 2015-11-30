@@ -1,5 +1,5 @@
 // Example program
-#include "gene.h"
+#include "stdafx.h"
 
 //no args, creates a random gene
 void gene::initialize()
@@ -53,7 +53,7 @@ void gene::printGene()
 	else{ std::cout << "a\n";}
 }
 	
-int main()
+/*int main()
 {
     for(int i = 0; i < 10; i++)
     {
@@ -61,4 +61,4 @@ int main()
 	    test.initialize();
 	    test.printGene();
     }
-}
+}*/
