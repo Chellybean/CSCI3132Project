@@ -101,40 +101,46 @@ Population Population::newGeneration()
 	return newGen;
 }
 //creates a new generation with specified fitnesses
-Population Population::newGeneration(double fitAA, double fitaa, double fitAa)
+Population Population::newGeneration(double fitAA, double fitAa, double fitaa)
 {
-	double fitAvg = (fitAA + fitaa + fitAa) / 3;
+	double fitAvg = (fitAA + fitaa + fitAa) / 3.0;
 
 	//Calculation: (#Genotype * fitness of Genotype) / average fitness -> next generation num of Genotype
 
-	int numAA = (double)( (countAA() * fitAA) / fitAvg ) - (int)( (countAA() * fitAA) / fitAvg ) >= 0.5 ?
-		(int)( (countAA() * fitAA) / fitAvg ) + 1 : (int)( (countAA() * fitAA) / fitAvg );
-	int numaa = (double)( (countaa() * fitaa) / fitAvg ) - (int)( (countaa() * fitaa) / fitAvg ) >= 0.5 ?
-		(int)( (countaa() * fitaa) / fitAvg ) + 1 : (int)( (countaa() * fitaa) / fitAvg );
-	int numAa = (double)( (countAa() * fitAa) / fitAvg ) - (int)( (countAa() * fitAa) / fitAvg ) >= 0.5 ?
-		(int)( (countAa() * fitAa) / fitAvg ) + 1 : (int)( (countAa() * fitAa) / fitAvg );
+	int numAA = countAA() * fitAA;
+	int numAa = countAa() * fitAa;
+	int numaa = countaa() * fitaa;
 
 	Population newGen;
 	newGen.initialize();
 
-	std:vector<Individual> nextGen;
+	std::vector<Individual> nextGenSample;
 
 	for(auto i = 0; i < numAA; i++)
 	{
 		Individual ind;
 		ind.initialize(gene::A, gene::A);
-		nextGen.push_back(ind);
+		nextGenSample.push_back(ind);
 	}
 	for(auto i = 0; i < numaa; i++)
 	{
 		Individual ind;
-		ind.initialize(gene::A, gene::A);
-		nextGen.push_back(ind);
+		ind.initialize(gene::a, gene::a);
+		nextGenSample.push_back(ind);
 	}
 	for(auto i = 0; i < numAa; i++)
 	{
 		Individual ind;
 		ind.initialize(gene::A, gene::a);
+		nextGenSample.push_back(ind);
+	}
+
+	std::vector<Individual> nextGen;
+
+	for(auto i = 0; i < pop.size(); i++)
+	{
+		Individual ind;
+		ind = nextGenSample.at(rand() % nextGenSample.size()).mate(nextGenSample.at(rand() % nextGenSample.size()));
 		nextGen.push_back(ind);
 	}
 

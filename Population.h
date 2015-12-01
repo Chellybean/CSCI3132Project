@@ -2,6 +2,9 @@
 #define __POPULATION_H_INCLUDED__
 #include "Individual.h"
 #include <vector>
+#include <cmath>
+//#include <cfenv>
+#include <climits>
 
 class Population
 {

@@ -13,6 +13,7 @@
 #include "gene.h"
 #include "Individual.h"
 #include "Population.h"
+#include "graph.h"
 
 
 
